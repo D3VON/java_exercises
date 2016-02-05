@@ -1,25 +1,22 @@
 /* Isitpalindrome.java
 
-  usage: java Isitpalindrome abba
+  Given a word, is it a palindrome. 
+  Or, given a file, is each line a palindrome
+
+  usage: java Isitpalindrome 
+
+         (then type words)
+         type exit to exit 
+
          or
+
          java Isitpalindrome < palindromes.txt
 
-  given a list of words, is the entire thing a palindrome. 
-  Or
-  given a file, is each line a palindrome
+         (last word should be 'exit' in the file so the program exits gracefully) 
 
-  NOTE: (from stackoverflow)
-  The input is captured by the System.in and not as data passed through 
-  the main(String[] args) method when the program starts.
-
-  To read that data from the input, read it from System.in as an 
-  InputStream or wrap it in a Reader:
-
-  BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
-  ...br.readLine(); 
-	
-  And make sure to not close the System.in or the Reader, or else you 
-  will close keyboard input to your program too!
+  NOTE: You cannot enter a word as an argument; enter words after starting the program.
+  For file redirection input, the input is captured by System.in. 
+  Nothing will be done with anything passed to main(String[] args) when the program starts.
 */
 
 
@@ -36,7 +33,12 @@ class Isitpalindrome{
 
       try{
          BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+line = br.readLine();
+System.out.println(line);
          while ((line = br.readLine()) != null) {
+            if(line.equals("exit")){
+              System.exit(0); 
+            }
             System.out.println(line);
          }   
 
