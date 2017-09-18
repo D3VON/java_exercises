@@ -7,7 +7,7 @@
  * 
  * 
  * KEY THINGS TO REMEMBER
- * - swap function to sway elements within the array
+ * - swap function to swap elements within the array
  * - pivot doesn't move, except when partition finishes
  * - partitionIndex (usually just called pIndex -- which confused me because I thought it meant pivot index) moves one step at a time to the right, starting from the 0th element
  * 
