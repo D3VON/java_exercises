@@ -15,13 +15,13 @@ class Fibonacci_Loop {
 
 		int a = 1;
 		int b = 1;
-		int c = 0;		
+		int c = 0;
 		if ( n<1 ) {
 			System.out.println("-----------------------------------");
 			System.out.println("n is "+ n + ", so fib(n) is " + c);
 			return c;
 		}
-		
+
 		if ( n<2 ){
 			System.out.println("-----------------------------------");
 			System.out.println("n is "+ n + ", so fib(n) is " + a);
