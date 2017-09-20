@@ -26,24 +26,24 @@ public class passByReference {
  */
 public class StacksAndQueues {
 
-    public static void main(String args[]){
+//    public static void main(String args[]){
 
-        Stack<String> stack = new Stack<String>();
-        Queue<String> queue = new LinkedList<String>();
-
-        stack.push("Apple");
-        stack.push("Banana");
-        stack.push("Cherry");
-        queue.add(stack.pop());
-        stack.push("Dingleberry");
-        stack.push("Eggplant");
-        queue.add("fig");
-        stack.push(queue.remove());
-        queue.add(stack.pop());
-        queue.add(stack.pop());
-
-        System.out.println(stack);
-        System.out.println(queue);
+//        Stack<String> stack = new Stack<String>();
+//        Queue<String> queue = new LinkedList<String>();
+//
+//        stack.push("Apple");
+//        stack.push("Banana");
+//        stack.push("Cherry");
+//        queue.add(stack.pop());
+//        stack.push("Dingleberry");
+//        stack.push("Eggplant");
+//        queue.add("fig");
+//        stack.push(queue.remove());
+//        queue.add(stack.pop());
+//        queue.add(stack.pop());
+//
+//        System.out.println(stack);
+//        System.out.println(queue);
 
     }
 }
