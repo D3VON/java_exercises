@@ -8,23 +8,42 @@ public class TwentyDayMoving {
 
 
         /* Now, need:
-            tdma : 20 day moving average
             speed : speed of move
             distance : distance from price to 20 day moving average
             speed / distance
          */
 
-    /* each day needs a Twenty day moving average calculated for itself
-        So, make a basic function that takes a clump of 20 days and calculates the average
-        Some other function will create that clump of days.
+    /*
+        Average the values in the given array of arbitrary length.
+        @param an ArrayList of Doubles
+        @return the average of those values
+
      */
-    public static Double twentyDayMovingAverage(ArrayList<Double> prices){
+    public static Double movingAverage(ArrayList<Double> prices){
         Double sum = 0.0;
         for (Double price:prices)
         {
             sum += price;
         }
         return sum/prices.size();
+    }
+
+    /*
+    Speed of move, that is:
+    change / old price x 100
+    or
+    current price - old price / old price x 100
+    or
+
+    @param Doubles current price
+    @param Doubles old price
+
+    @return rateOfChange "speed" the price changed over some period
+
+ */
+    public static Double rateOfChange(Double current, Double old)
+    {
+        return ( current - old ) / old * 100;
     }
 
     public static void main(String args[]){
@@ -132,7 +151,7 @@ public class TwentyDayMoving {
                 temp.add(highs.get(j));
             }
             k++; // advance until reaching size of arraylist, then outer loop ends.
-            naiveAveragesList.add(twentyDayMovingAverage(temp));
+            naiveAveragesList.add(movingAverage(temp));
         }
 
         System.out.println("=============================");
@@ -153,24 +172,36 @@ public class TwentyDayMoving {
         for(int i = 0;  i<20; i++) { // initialize the sum
             cleversum += highs.get(i);
         }
-        cleverAveragesList.add(cleversum);
+        cleverAveragesList.add(cleversum/20); // calculate the first 20 day average
 
-        for (  ) {
+        int width = 20;
+        // now traverse calculating each 20 day average, removing the first of the group, adding the new last of the group
+        for(int last = width;  last<highs.size(); last++) { // initialize the sum
+            cleversum -= highs.get(last - width); // remove the first amount from sum as we begin traversing the data
+            cleversum += highs.get(last);
+            cleverAveragesList.add(cleversum/20);
 
-        }
 
         }
 
         System.out.println("=============================");
-        int z = 1;
-        for(Double x : cleverAveragesList){
-            System.out.println(z++ + " " + x + ", ");
+        int tally = 0;
+        for(int element = 0; element < cleverAveragesList.size(); element++){
+        //for(Double x : cleverAveragesList){
+
+            System.out.println((cleverAveragesList.get(element)) + " versus " + (naiveAveragesList.get(element)));
+            System.out.println(tally++ + " difference: " + (cleverAveragesList.get(element)-naiveAveragesList.get(element)));
         }
 
         System.out.println("=============================");
 
 
-
+// SHOULD BE IN ITS OWN LOOP
+        // TESTING TO SEE HOW THINGS FINALLY WORK. 
+        // just putting this here to see...
+        System.out.println("rate of change: " + (rateOfChange(highs.get(last), highs.get(last-1)))
+                + "; distance from 20dayMovingAve: " + ()
+        );
 
 
 
